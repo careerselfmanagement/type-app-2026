@@ -13,8 +13,8 @@ with open(DATA_PATH, "r", encoding="utf-8") as f:
 APP_TITLE = DATA.get("app_title", "小川ゼミ版コース診断")
 GENDER_OPTIONS = DATA.get("gender_options", {"男性": 0, "女性": 1, "その他": 2})
 GPA_OPTIONS = DATA.get("gpa_options", [
-    "1未満",
-    "1以上1.5未満",
+    "1.0未満",
+    "1.0以上1.5未満",
     "1.5以上2.0未満",
     "2.0以上2.5未満",
     "2.5以上3.0未満",
@@ -176,7 +176,7 @@ with st.form("diagnosis_form"):
         key="gender",
     )
     gpa_bin = st.selectbox(
-        "現状のGPAは",
+        "現状のGPAを選択してください",
         GPA_OPTIONS,
         index=None,
         placeholder="選択してください",
