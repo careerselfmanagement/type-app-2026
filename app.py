@@ -164,7 +164,7 @@ start_img = BASE_DIR / "images" / "start.png"
 if start_img.exists():
     st.image(str(start_img), width=180)
 
-st.caption("各質問について、最も近いものを選んでください。最後に、最も当てはまるタイプを1つだけ表示します。")
+st.caption("各質問について、最も近いものを選んでください。最後に、オススメのコースを表示します。")
 
 with st.form("diagnosis_form"):
     st.subheader("基本情報")
