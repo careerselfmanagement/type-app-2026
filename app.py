@@ -168,6 +168,10 @@ st.caption("各質問について、最も近いものを選んでください�
 
 with st.form("diagnosis_form"):
     st.subheader("基本情報")
+        user_id = st.text_input(
+        "学籍番号を入力してください",
+        key="user_id",
+    )
     gender_label = st.radio(
         "性別を教えてください",
         list(GENDER_OPTIONS.keys()),
@@ -239,6 +243,7 @@ if submitted:
         now_jst = datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d %H:%M:%S")
         row = {
             "timestamp_jst": now_jst,
+            "user_id": user_id,
             "gender_label": gender_label,
             "gender_code": GENDER_OPTIONS[gender_label],
             "gpa_bin": gpa_bin,
@@ -268,8 +273,8 @@ if submitted:
             if img_path.exists():
                 st.image(str(img_path), use_container_width=False, width=320)
             st.markdown(result["body"].replace("\n", "  \n"))
-            if len(candidates) > 1:
-                st.caption("※最高点が同点だったため、あらかじめ設定した優先順で1タイプだけ表示しています。")
+            # if len(candidates) > 1:
+            #    st.caption("※最高点が同点だったため、あらかじめ設定した優先順で1タイプだけ表示しています。")
 
         if saved:
             st.caption("回答を記録しました。")
