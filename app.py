@@ -168,8 +168,8 @@ st.caption("各質問について、最も近いものを選んでください�
 
 with st.form("diagnosis_form"):
     st.subheader("基本情報")
-        user_id = st.text_input(
-        "学籍番号を入力してください",
+    user_id = st.text_input(
+        "学籍番号を直接入力してください",
         key="user_id",
     )
     gender_label = st.radio(
